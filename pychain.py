@@ -83,7 +83,7 @@ class Block:
 
 
 @dataclass
-class Pychain:
+class PyChain:
     chain: List[Block]
     difficulty: int = 4 
 
@@ -96,7 +96,7 @@ class Pychain:
         print("Winning Hash", calculated_hash)
         return block
 
-        def add_block(self, candidate_block):
+    def add_block(self, candidate_block):
         block = self.proof_of_work(candidate_block)
         self.chain += [block]
 
@@ -162,16 +162,16 @@ if st.button("Add Block"):
 # which is set equal to a `Record` that contains the `sender`, `receiver`,
 # and `amount` values
 
-    new_block = Block(
-        creator_id=42,
-        prev_hash=prev_block_hash,
-        record=Record(sender, receiver, amount)
+new_block = Block(
+    creator_id=42,
+    prev_hash=prev_block_hash,
+    record=Record(sender, receiver, amount)
     )
 
 
 
-  pychain.add_block(new_block)
-    st.balloons()
+pychain.add_block(new_block)
+st.balloons()
 
 ################################################################################
 # Streamlit Code (continues)
